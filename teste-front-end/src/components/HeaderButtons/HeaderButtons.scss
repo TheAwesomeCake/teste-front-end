@@ -1,0 +1,22 @@
+.header-buttons {
+  display: flex;
+  gap: 32px;
+  margin: 20px 0;
+
+  .icon-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    &:hover img {
+      filter: brightness(0) saturate(100%) invert(18%) sepia(98%) saturate(3620%) hue-rotate(244deg) brightness(86%) contrast(100%);
+      transform: scale(1.1);
+    }
+  }
+}
