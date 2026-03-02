@@ -1,0 +1,58 @@
+.banner {
+  width: 100%;
+  height: 390px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .banner-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    color: #FFFFFF;
+    margin: 71px 81px 26px 81px;
+    max-width: 822px;
+    max-height: 128px;
+  }
+
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #FFFFFF;
+    margin: 0 81px;
+
+    span {
+      color: #F7CA11;
+      font-weight: 600;
+    }
+  }
+
+  button {
+    width: 206px;
+    height: 50px;
+    background-color: #F7CA11;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #271C47;
+    margin: 32px 81px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #271C47;
+      color: #F7CA11;
+    }
+  }
+}
