@@ -1,0 +1,36 @@
+.brands-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+
+  .brands-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    flex-wrap: wrap;
+
+    .brand-circle {
+      width: 211px;
+      height: 211px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); // Sombra para destacar o círculo branco
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .logo {
+        transform: scale(1.5); // Ajuste opcional para o logo preencher melhor o círculo grande
+      }
+    }
+  }
+}

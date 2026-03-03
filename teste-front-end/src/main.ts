@@ -5,6 +5,7 @@ import { Categories } from './components/Categories/Categories'
 import { Products } from './components/Products/Products'
 import { ProductsAlt } from './components/ProductsAlt/ProductsAlt'
 import { AdSense } from './components/AdSense/AdSense'
+import { Brands } from './components/Brands/Brands'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${Header()}
@@ -14,5 +15,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${AdSense()}
   ${ProductsAlt()}
   ${AdSense()}
-
+  ${Brands()}
 `
