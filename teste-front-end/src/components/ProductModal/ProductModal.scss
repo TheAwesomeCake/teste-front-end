@@ -1,0 +1,83 @@
+.product-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.54);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+
+.product-modal-overlay.open {
+  opacity: 1;
+}
+
+.product-modal-overlay.closing {
+  opacity: 0;
+}
+
+.product-modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.25s ease;
+}
+
+.product-modal-overlay.open .product-modal {
+  transform: scale(1);
+}
+
+.product-modal-overlay.closing .product-modal {
+  transform: scale(0.9);
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.modal-info {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.modal-name {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.modal-description {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.modal-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

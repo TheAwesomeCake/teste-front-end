@@ -7,7 +7,7 @@ export interface Product {
   price: number;
 }
 
-export function ProductCard(product: Product): string {
+export function ProductCard(product: Product, index?: number): string {
   const price = product.price;
   const oldPrice = price + (price * 0.0647);
   const installmentPrice = price / 2;
@@ -16,8 +16,10 @@ export function ProductCard(product: Product): string {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
+  const dataIndex = index !== undefined ? ` data-index="${index}"` : '';
+
   return `
-    <div class="product-card">
+    <div class="product-card"${dataIndex}>
       <div class="product-image">
         <img src="${product.photo}" alt="${product.productName}">
       </div>
@@ -27,7 +29,7 @@ export function ProductCard(product: Product): string {
         <span class="product-price">${formatPrice(price)}</span>
         <span class="installment">ou 2x de ${formatPrice(installmentPrice)} sem juros</span>
         <span class="free-shipping">Frete grátis</span>
-        <button>COMPRAR</button>
+        <button class="buy-button">COMPRAR</button>
       </div>
     </div>
   `

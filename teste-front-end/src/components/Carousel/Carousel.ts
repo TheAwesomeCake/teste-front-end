@@ -1,6 +1,16 @@
 import './Carousel.scss'
 import { ProductCard, type Product } from '../ProductCard/ProductCard'
+import { openProductModal } from '../ProductModal/ProductModal'
 import data from '../../data/produtos.json'
+
+let products: Product[] = data.products;
+
+if (products.length < 4) {
+  const copy = [...products];
+  while (products.length < 4) {
+    products.push(copy[products.length % copy.length]);
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.carousel-track') as HTMLElement;
@@ -51,19 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', updateView);
 
+  document.body.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const card = target.closest('.product-card') as HTMLElement | null;
+    if (!card) return;
+    const idxAttr = card.getAttribute('data-index');
+    if (!idxAttr) return;
+    const index = Number(idxAttr);
+    if (isNaN(index)) return;
+    const product = products[index];
+    if (product) {
+      openProductModal(product);
+    }
+  });
+
   updateView();
 });
 
 export function Carousel() {
-  let products: Product[] = data.products;
-
-  if (products.length < 4) {
-    const copy = [...products];
-    while (products.length < 4) {
-      products.push(copy[products.length % copy.length]);
-    }
-  }
-
   return `
     <div class="carousel-container">
       <button class="carousel-nav prev">
@@ -73,7 +88,7 @@ export function Carousel() {
       </button>
       <div class="carousel-content">
         <div class="carousel-track">
-          ${products.map(product => ProductCard(product)).join('')}
+          ${products.map((product, idx) => ProductCard(product, idx)).join('')}
         </div>
       </div>
       <button class="carousel-nav next">

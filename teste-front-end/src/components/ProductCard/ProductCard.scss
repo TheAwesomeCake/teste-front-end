@@ -11,6 +11,12 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 
 
   .product-image {
