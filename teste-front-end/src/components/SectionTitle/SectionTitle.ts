@@ -1,10 +1,10 @@
-import './ProductsTitle.scss'
+import './SectionTitle.scss'
 
-export function ProductsTitle() {
+export function SectionTitle(title: string) {
   return `
-    <div class="products-title">
+    <div class="section-title">
       <div class="title-content">
-        <h3>Produtos Relacionados</h3>
+        <h3>${title}</h3>
       </div>
     </div>
   `

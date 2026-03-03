@@ -6,6 +6,7 @@ import { Products } from './components/Products/Products'
 import { ProductsAlt } from './components/ProductsAlt/ProductsAlt'
 import { AdSense } from './components/AdSense/AdSense'
 import { Brands } from './components/Brands/Brands'
+import { Footer } from './components/Footer/Footer'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${Header()}
@@ -16,4 +17,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${ProductsAlt()}
   ${AdSense()}
   ${Brands()}
+  ${ProductsAlt()}
+  ${Footer()}
 `
