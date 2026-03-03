@@ -1,0 +1,42 @@
+.products-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .title-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      color: #3442B5;
+      margin: 0 34px;
+    }
+
+    .line {
+      width: 360px;
+      height: 1px;
+      background-color: #DEDEDE;
+    }
+  }
+
+  .see-all {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #3F3F40;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: #3442B5;
+    }
+  }
+}
