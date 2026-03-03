@@ -1,12 +1,12 @@
 import './Tags.scss'
 
 const tagsList = [
-  'Celular',
-  'Acessórios',
-  'Tablets',
-  'Notebooks',
-  'TVs',
-  'Ver todos'
+  'CELULAR',
+  'ACESSÓRIOS',
+  'TABLETS',
+  'NOTEBOOKS',
+  'TVS',
+  'VER TODOS'
 ]
 
 export function Tags() {

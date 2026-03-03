@@ -1,4 +1,5 @@
 .carousel-container {
+  width: calc(100% - 80px);
   margin: 20px 40px;
   position: relative;
   display: flex;
@@ -13,14 +14,15 @@
 
   .carousel-track {
     display: flex;
-    margin: 0;
-    gap: 22px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
     width: max-content;
     transition: transform 0.5s ease;
     
     .product-card {
       margin: 0;
-      width: 317.5px;
+      flex-shrink: 0;
     }
   }
 
