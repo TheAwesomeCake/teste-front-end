@@ -1,9 +1,16 @@
+$color-primary: #271C47;
+$color-accent: #F7CA11;
+$color-red: #FF0000;
+$color-gray-text: #3F3F40;
+$color-gray-light: #9F9F9F;
+$color-border: #D9D9D9;
+
+%filter-red { filter: invert(13%) sepia(94%) saturate(7454%) hue-rotate(359deg) brightness(101%) contrast(114%); }
+%filter-dark { filter: invert(10%) sepia(21%) saturate(3665%) hue-rotate(228deg) brightness(94%) contrast(101%); }
+
 .product-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.54);
   display: flex;
   align-items: center;
@@ -11,73 +18,182 @@
   opacity: 0;
   transition: opacity 0.25s ease;
   z-index: 1000;
-}
-
-.product-modal-overlay.open {
-  opacity: 1;
-}
-
-.product-modal-overlay.closing {
-  opacity: 0;
+  &.open { opacity: 1; }
+  &.closing { opacity: 0; }
 }
 
 .product-modal {
+  width: 769px;
+  height: 299.26px;
   background: #fff;
   border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
   position: relative;
-  transform: scale(0.9);
-  transition: transform 0.25s ease;
+  transform: scale(0.95);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: flex;
+  overflow: hidden; 
 }
 
 .product-modal-overlay.open .product-modal {
   transform: scale(1);
-}
-
-.product-modal-overlay.closing .product-modal {
-  transform: scale(0.9);
+  opacity: 1;
 }
 
 .close-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 20px;
+  right: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  z-index: 10;
+  
+  img, svg {
+    width: 16px;
+    height: 16px;
+    @extend %filter-dark;
+    transition: filter 0.2s ease;
+  }
+
+  &:hover img, &:hover svg {
+    @extend %filter-red;
+  }
 }
 
-.modal-content {
+.modal-body {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+}
+
+.modal-left {
+  flex: 1;
+  max-width: 380px;
+  display: flex;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
+  padding: 40px;
 }
 
 .modal-image img {
   max-width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
-.modal-info {
-  margin-top: 16px;
-  text-align: center;
+.modal-right {
+  flex: 1.2;
+  padding: 40px 50px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .modal-name {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-}
-
-.modal-description {
-  font-size: 1rem;
-  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: $color-gray-text;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
 }
 
 .modal-price {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: $color-gray-text;
+  margin-bottom: 25px;
+}
+
+.modal-preview {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 10px;
+  color: $color-gray-light;
+  line-height: 1.5;
+  max-width: 320px;
+  margin-bottom: 10px;
+}
+
+.modal-link {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: #3442B5;
+  text-decoration: none;
+  margin-bottom: 30px;
+  &:hover { text-decoration: underline; }
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.qty-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  height: 42px;
+  padding: 0 8px;
+}
+
+.qty-btn {
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  img, svg {
+    width: 14px;
+    @extend %filter-dark;
+  }
+}
+
+.qty-input {
+  width: 40px;
+  border: none;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: $color-primary;
+}
+
+.purchase-btn {
+  flex-grow: 1;
+  max-width: 220px;
+  height: 42px;
+  background: $color-accent;
+  color: $color-primary;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-accent;
+  }
+}
+
+@media (max-width: 800px) {
+  .product-modal {
+    flex-direction: column;
+    width: 95%;
+    min-height: auto;
+  }
+  .modal-right {
+    padding: 20px;
+    text-align: left;
+  }
 }
