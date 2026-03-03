@@ -7,7 +7,6 @@ export function ProductsAlt() {
   return `
     <section class="products-section">
       ${ProductsTitle()}
-      ${Tags()}
       ${Carousel()}
     </section>
   `
