@@ -34,6 +34,15 @@
       .logo {
         width: 117px;
         height: 42.76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
       }
     }
   }

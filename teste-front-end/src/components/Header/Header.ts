@@ -11,7 +11,7 @@ export function Header() {
         ${AssuranceHeader()}
         <hr />
         <div class="main-row">
-          ${Logo()}
+          ${Logo('139px', '41.3px')}
           ${SearchBar()}
           ${HeaderButtons()}
         </div>
